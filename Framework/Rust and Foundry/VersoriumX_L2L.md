@@ -167,3 +167,15 @@ Explanation:
 2. Implement the Form Extractor Module
 
 This module is responsible for Phase 1 & 2: taking raw data and distilling it into Forms.
+
+Explanation:
+
+    FormExtractor: Orchestrates the process using an AbstractionAlgorithm (e.g., a VAE for disentangled representations, or a clustering algorithm) and optionally a SymbolicExtractor (for rule-based Forms).
+    AbstractionAlgorithm trait: Defines the interface for models that can identify abstract patterns.
+    SymbolicExtractor trait: For systems that can derive logical rules or explicit knowledge graph components.
+
+3. Build the Context Graph Manager
+
+This module handles Phase 3: integrating Forms and managing the ContextGraph.
+
+
