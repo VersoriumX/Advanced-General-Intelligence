@@ -157,3 +157,13 @@ Core Principle: The VersoriumX Context Engine operates as an orchestrator and kn
 1. Define Core Data Structures: The "Forms" and "Context Graph"
 
 First, establish how Forms and their relationships (the Context Graph) will be represented computationally.
+
+Explanation:
+
+    Form: Captures the essence of an abstract concept, including a latent representation (e.g., embedding from an autoencoder), meta_properties, and an ethical_score.
+    FormRelation: Defines how Forms are interconnected, critical for Collection and Division.
+    ContextGraph: Manages the entire network of Forms and their relationships. For robust systems, consider a graph database (Neo4j, Dgraph) or a dedicated Rust graph library like petgraph.
+
+2. Implement the Form Extractor Module
+
+This module is responsible for Phase 1 & 2: taking raw data and distilling it into Forms.
