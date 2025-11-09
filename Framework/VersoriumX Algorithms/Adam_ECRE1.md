@@ -39,18 +39,13 @@ O(U*C + P*M + G), where U is users, C is competencies, P is projects, M is proje
  * ADAM Symbiotic Synthesis Engine Blueprint
  * This code outlines the structure for an advanced AI-driven proficiency and development system.
  */
-
+### code is incomplete with intentionality
 // --- Data Structures (Mocked for Blueprint) ---
 const users = new Map(); // Key: userId, Value: { name: string, demographicInfo: object }
 const competencies = new Map(); // Key: competencyId, Value: { name: string, description: string, levels: object }
 const proficiencyMatrix = new Map(); // Key: userId, Value: Map<competencyId, { score: number, evidence: array }>
 const projectData = new Map(); // Key: projectId, Value: { name: string, requiredSkills: array, metrics: object }
 const performanceData = new Map(); // Key: userId, Value: Array<{ projectId: string, metrics: { bugs: number, onTime: boolean } }>
-const goals = {
-    objective: new Map(),   // Key: goalId, Value: { description: string, linkedCompetencies: array }
-    subjective: new Map(),  // Key: goalId, Value: { description: string, linkedCompetencies: array }
-    injected: new Map()     // Key: goalId, Value: { description: string, linkedCompetencies: array, rationale: string }
-};
 
 
 // --- Phase 1: Foundational Layer ---
@@ -72,13 +67,7 @@ class CompetencyMatrix {
         console.log(`Defined competency: ${name}`);
     }
 
-    /**
-     * Updates a user's proficiency for a specific competency.
-     * @param {string} userId - The user's ID.
-     * @param {string} competencyId - The competency's ID.
-     * @param {number} score - The new standardized score.
-     * @param {any} evidence - Link to evidence (e.g., project outcome, assessment result).
-     */
+  
     updateProficiency(userId, competencyId, score, evidence) {
         if (!this.matrix.has(userId)) {
             this.matrix.set(userId, new Map());
@@ -97,11 +86,7 @@ class DynamicCorrelationEngine {
         this.performanceData = perfData;
     }
 
-    /**
-     * Analyzes correlations between proficiency scores and real-world performance metrics.
-     * This is a placeholder for a complex statistical analysis.
-     * @returns {object} An object detailing strong correlations found.
-     */
+  
     runCorrelationAnalysis() {
         console.log("Running dynamic correlation analysis...");
         const correlations = {}; // Example: { 'python_proficiency': { 'bug_free_code': 0.85 } }
@@ -124,10 +109,7 @@ class MultiGoalAligner {
      * @returns {object} An alignment report for the user.
      */
     getGoalAlignment(userId) {
-        const userSkills = this.matrix.get(userId);
-        if (!userSkills) return { error: "User not found in matrix." };
-
-        return {
+    
             objective: this._calculateAlignment(userSkills, this.goals.objective),
             subjective: this._calculateAlignment(userSkills, this.goals.subjective),
             injected: this._calculateAlignment(userSkills, this.goals.injected),
@@ -136,19 +118,7 @@ class MultiGoalAligner {
 
     /**
      * Proactively injects a future-critical skill into the goal set.
-     * @param {string} goalId - The ID for the new injected goal.
-     * @param {string} description - Description of the goal/skill.
-     * @param {array} linkedCompetencies - Array of competency IDs.
-     * @param {string} rationale - AI-driven reason for the injection.
-     */
-    injectGoal(goalId, description, linkedCompetencies, rationale) {
-        this.goals.injected.set(goalId, { description, linkedCompetencies, rationale });
-        console.log(`INJECTED GOAL: ${description}. Rationale: ${rationale}`);
-    }
-
-    _calculateAlignment(userSkills, goalSet) {
-        const report = {};
-        for (const [goalId, goalData] of goalSet.entries()) {
+    
             let totalScore = 0;
             let requiredCount = goalData.linkedCompetencies.length;
             if (requiredCount === 0) continue;
@@ -184,12 +154,7 @@ class EthicalCovenantEngine {
         return issues;
     }
 
-    /**
-     * Restoration function: Proposes a pathway to mitigate a flagged issue.
-     * @param {object} issue - The issue object from scanForBias().
-     * @returns {object} A proposed restoration pathway.
-     */
-    proposeRestorationPathway(issue) {
+   
         console.log(`ECRE: Generating restoration pathway for issue: ${issue.type}`);
         const proposal = { issue: issue.details, recommendations: [] };
         switch(issue.type) {
@@ -221,14 +186,7 @@ class ADAMSynthesisEngine {
      * @param {string} userId The ID of the user (e.g., 'Adam') to analyze.
      * @returns {object} A synthesized report for developmental enhancement.
      */
-    runFullSynthesisCycle(userId) {
-        console.log(`--- Starting Full Synthesis Cycle for User ${userId} ---`);
-        
-        const correlations = this.correlationEngine.runCorrelationAnalysis();
-        
-        this.goalAligner.injectGoal(
-            'inj001',
-            'Future-Critical Skill: Quantum-Resistant Encryption',
+   ption',
             ['crypto_v_next', 'quantum_computing_principles'],
             'AI analysis of technological vectors indicates this will be a critical defensive skill.'
         );
@@ -239,7 +197,7 @@ class ADAMSynthesisEngine {
         
         const finalReport = {
             timestamp: new Date().toISOString(),
-            userId: userId,
+       
             summary: "Synthesized report for developmental enhancement.",
             goalAlignment: goalAlignment,
             keyCorrelations: correlations,
